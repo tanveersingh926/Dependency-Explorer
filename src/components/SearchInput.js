@@ -23,11 +23,11 @@ const SearchInput = withRouter(({ history }) => {
   }
   return (
     <Row className='justify-content-md-center align-items-center searchPage-container'>
-      <Col xs='8' sm={{ size: 7, offset: 1 }} md={{ size: 6, offset: 2 }} className='search-input-container'>
+      <Col xs='8' md='6' className='search-input-container'>
         <Input type='text' placeholder='Search Packages' bsSize='lg' onChange={onSearchInput} value={searchValue} />
         {!!searchValue && <SearchItems searchResults={searchResults} />}
       </Col>
-      <Col xs='4' sm='3' md='2'>
+      <Col xs='4' md='2'>
         <Button color='primary' size='lg' block onClick={onSearchBtn}>Search</Button>
       </Col>
     </Row>
