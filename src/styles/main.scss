@@ -1,5 +1,4 @@
 .searchPage {
-    // padding-top: 2rem;
     h1 {
         font-size: 2.5rem;
         position: absolute;
@@ -63,5 +62,35 @@
                 }
             }
         }
+    }
+}
+
+.package-detail-container{
+    h1 {
+        font-size: 1.5rem;
+        padding: 1rem 0;
+        font-weight: normal;
+
+        span {
+            font-weight: bold;
+            color: #007bff;
+            text-transform: capitalize;
+        }
+    }
+}
+
+.loader {
+    z-index: 5;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background: rgba(255,255,255,0.6);
+
+    div.spinner-holder {
+        position: absolute;
+        top: 50%;
+        left: 50%;
     }
 }

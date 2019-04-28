@@ -2,6 +2,7 @@ import React from 'react'
 import { ListGroup, ListGroupItem, Spinner } from 'reactstrap'
 import { Store } from '../App'
 import { Link } from 'react-router-dom'
+import { MESSAGES } from '../constants'
 
 const SearchItems = ({ searchResults }) => {
   const { isLoading } = React.useContext(Store)
@@ -16,7 +17,7 @@ const SearchItems = ({ searchResults }) => {
               <Link to={`/${item.name.toLowerCase()}`}>{item.name}</Link>
             </ListGroupItem>
           ))}
-        </ListGroup> : 'No packages available'
+        </ListGroup> : MESSAGES.noPackageFound
       }
 
     </div>

@@ -7,6 +7,7 @@ export const configureAxios = (setLoading) => {
     setLoading(true)
     return config
   }, function (error) {
+    setLoading(false)
     showError()
     return Promise.reject(error)
   })
@@ -16,7 +17,10 @@ export const configureAxios = (setLoading) => {
     setLoading(false)
     return response
   }, function (error) {
-    showError()
+    setLoading(false)
+    if (error.response.status !== 404) {
+      showError()
+    }
     return Promise.reject(error)
   })
 }

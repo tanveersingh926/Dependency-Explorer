@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import './App.css'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import Search from './components/SearchPage'
-import PackagePage from './components/PackagePage'
+import SearchPage from './components/SearchPage'
+import PackageDetailsPage from './components/PackageDetailsPage'
 import { configureAxios } from './utils'
 
 export const Store = React.createContext()
@@ -17,8 +16,8 @@ function App () {
       isLoading: isLoading
     }}>
       <Router>
-        <Route path='/' exact component={Search} />
-        <Route path='/:package' component={PackagePage} />
+        <Route path='/' exact component={SearchPage} />
+        <Route path='/:package' component={PackageDetailsPage} />
       </Router>
     </Store.Provider>
   )
