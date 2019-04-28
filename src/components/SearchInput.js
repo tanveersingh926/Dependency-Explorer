@@ -2,42 +2,21 @@ import React, { useState } from 'react'
 import { Button, Input, Row, Col } from 'reactstrap'
 import SearchItems from './SearchItems'
 import { API } from '../constants'
-import axios from 'axios'
+import { getDetails } from '../utils'
 
 const SearchInput = () => {
   const [searchValue, setSearchValue] = useState('')
   const [searchResults, setSearchResults] = useState([])
+
   const onSearchBtn = async (e) => {
-    let res
-    try {
-      res = await axios.get(`${API.search}${searchValue}`, {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'Access-Control-Allow-Origin': '*'
-
-        }
-      })
-
-      setSearchResults(res.data)
-    } catch (error) {
-      console.log(error)
-    }
+    const res = await getDetails(`${API.search}${searchValue}`)
+    setSearchResults(res.data)
   }
+
   const onSearchInput = async (event) => {
-    event.persist()
     setSearchValue(event.target.value)
-    let res
-    try {
-      res = await axios.get(`${API.search}${searchValue}`, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        }
-      })
-      setSearchResults(res.data)
-    } catch (error) {
-      console.log(error)
-    }
+    const res = await getDetails(`${API.search}${searchValue}`)
+    setSearchResults(res.data)
   }
   return (
     <Row className='justify-content-md-center align-items-center searchPage-container'>
